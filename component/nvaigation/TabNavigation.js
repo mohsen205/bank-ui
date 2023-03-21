@@ -54,7 +54,6 @@ const homeMainOptions = {
   headerTitle: () => <Logo />,
   headerTitleAlign: "center",
   headerLeft: () => {
-    console.log(faker.image.people());
     return (
       <View style={styles.profileContainer}>
         <Image
