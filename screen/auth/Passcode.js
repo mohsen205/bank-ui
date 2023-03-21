@@ -1,6 +1,5 @@
 import React from "react";
 import { Text, View, StyleSheet, ScrollView, Pressable } from "react-native";
-import Code from "../../component/Code";
 import { COLORS, FONTS, SIZES } from "../../constant";
 import Keyboard from "../../component/Keyboard";
 import Button from "../../component/buttons/Button";
@@ -9,7 +8,6 @@ const Passcode = () => {
   return (
     <View style={styles.passcodeContainer}>
       <Text style={[styles.title, FONTS.bodyL]}> Enter Passcode</Text>
-      <Code />
       <Keyboard />
       <Button
         title="Can not login?"
