@@ -12,9 +12,9 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      state.isLogged = true;
       state.id = faker.datatype.uuid();
-      passcode = action.payload;
+      state.isLogged = true;
+      state.passcode = action.payload;
     },
     logout: (state) => {
       state.isLogged = false;

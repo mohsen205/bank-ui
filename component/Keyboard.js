@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import DeleteButton from "./buttons/DeleteButton";
 import NumberButton from "./buttons/NumberButton";
 import { login } from "../context/features/authSlice";
@@ -10,13 +10,11 @@ import Code from "./Code";
 const Keybaord = () => {
   const [keyValue, setKeyValue] = useState([]);
 
-  // const auth = useSelector((state) => state.auth);
-
   const dispatch = useDispatch();
 
   const handleKeyboardEvent = (value) => {
     if (!isNaN(value)) {
-      if (keyValue.length <= 4) {
+      if (keyValue.length <= 5) {
         setKeyValue([value, ...keyValue]);
       }
     } else {
@@ -24,12 +22,14 @@ const Keybaord = () => {
       newKeyValue.splice(0, 1);
       setKeyValue(newKeyValue);
     }
-
-    if (keyValue.length === 4) {
-      const passcode = toNumber(keyValue);
-      dispatch(() => login(passcode));
-    }
   };
+
+  useEffect(() => {
+    if (keyValue.length === 5) {
+      const passcode = toNumber(keyValue);
+      dispatch(login(passcode));
+    }
+  }, [keyValue]);
 
   return (
     <>

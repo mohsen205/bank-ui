@@ -13,12 +13,6 @@ import StackNavigation from "./component/nvaigation/StackNavigation";
 import { Provider } from "react-redux";
 import store from "./context/app/store";
 
-// const AuthNavigation = () =>{
-//   return (
-
-//   )
-// }
-
 const App = () => {
   let [fontsLoaded] = useFonts({
     Inter_900Black,
