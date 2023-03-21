@@ -9,6 +9,8 @@ import Logo from "../Logo";
 import { COLORS, SIZES } from "../../constant/";
 import { useSelector } from "react-redux";
 import { Ionicons } from "@expo/vector-icons";
+import { Image, View, StyleSheet } from "react-native";
+import { faker } from "@faker-js/faker";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -52,13 +54,17 @@ const homeMainOptions = {
   headerTitle: () => <Logo />,
   headerTitleAlign: "center",
   headerLeft: () => {
+    console.log(faker.image.people());
     return (
-      <IconButton style={{ marginRight: SIZES.base }}>
-        <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
-      </IconButton>
+      <View style={styles.profileContainer}>
+        <Image
+          source={{ uri: faker.image.people() }}
+          resizeMode="cover"
+          style={styles.image}
+        />
+      </View>
     );
   },
-  // tabBarVisible: false,
   tabBarIcon: ({ color, size }) => {
     return <Ionicons name="ios-home-outline" size={size} color={color} />;
   },
@@ -135,3 +141,18 @@ const TabNavigation = () => {
 };
 
 export default TabNavigation;
+
+const styles = StyleSheet.create({
+  profileContainer: {
+    width: 32,
+    height: 32,
+    marginLeft: SIZES.radius,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  image: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 16,
+  },
+});

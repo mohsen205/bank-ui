@@ -1,11 +1,11 @@
 import React from "react";
 import {
   useFonts,
-  Inter_900Black,
-  Inter_400Regular,
-  Inter_600SemiBold,
-  Inter_500Medium,
-} from "@expo-google-fonts/inter";
+  Montserrat_900Black,
+  Montserrat_400Regular,
+  Montserrat_600SemiBold,
+  Montserrat_500Medium,
+} from "@expo-google-fonts/montserrat";
 
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
@@ -15,10 +15,10 @@ import store from "./context/app/store";
 
 const App = () => {
   let [fontsLoaded] = useFonts({
-    Inter_900Black,
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
+    Montserrat_900Black,
+    Montserrat_400Regular,
+    Montserrat_600SemiBold,
+    Montserrat_500Medium,
   });
 
   if (!fontsLoaded) {
